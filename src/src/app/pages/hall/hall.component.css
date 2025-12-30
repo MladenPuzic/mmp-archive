@@ -59,6 +59,13 @@
 .hall-table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: auto;
+}
+
+.hall-table thead,
+.hall-table tbody,
+.hall-table tr {
+  width: 100%;
 }
 
 .hall-table thead {
@@ -100,18 +107,19 @@
 }
 
 .rank-col {
-  width: 60px;
+  width: 15%;
   text-align: center;
 }
 
 .count-col {
-  width: 100px;
+  width: 25%;
   text-align: right;
   font-weight: 600;
   color: var(--accent);
 }
 
 .name-col {
+  width: 60%;
   font-weight: 500;
 }
 
@@ -174,5 +182,47 @@
   
   .count-col {
     width: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hall-page h2 {
+    font-size: 1.4rem;
+  }
+  
+  .hall-card-header {
+    padding: 12px 16px;
+  }
+  
+  .hall-card-header h3 {
+    font-size: 1rem;
+  }
+  
+  .hall-table th,
+  .hall-table td {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+  
+  .hall-table th {
+    font-size: 0.7rem;
+  }
+  
+  .rank {
+    min-width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
+  }
+  
+  .count-col {
+    width: 60px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hall-table th,
+  .hall-table td {
+    padding: 6px 8px;
+    font-size: 0.8rem;
   }
 }

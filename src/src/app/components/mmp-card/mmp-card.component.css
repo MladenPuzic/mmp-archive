@@ -245,7 +245,7 @@
 
 .cast-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
   gap: 8px;
 }
 
@@ -415,4 +415,37 @@ a.cast-link:hover, a.pill-link:hover {
   .info-pill{justify-content: space-between}
   .cast-grid{grid-template-columns: 1fr}
   .card-header{flex-direction: column; gap: 8px}
+}
+
+@media (max-width:600px){
+  .mmp-card-body{padding: 14px}
+  .mmp-card-body h3{font-size: 1.05rem}
+  .media-view{height: 180px}
+  .thumbs{gap: 6px}
+  .thumb{width: 40px; height: 40px; border-radius: 6px}
+  .media-controls button{padding: 6px 10px; font-size: 0.85rem}
+  .info-pill{padding: 6px 10px}
+  .pill-label{font-size: 0.65rem}
+  .pill-value{font-size: 0.8rem}
+  .cast-member{padding: 8px 10px}
+  .cast-name{font-size: 0.85rem}
+  .cast-role{font-size: 0.75rem}
+  .notes-section p{padding: 10px; font-size: 0.85rem}
+  
+  /* Lightbox mobile */
+  .lightbox-inner{max-width: 95vw; max-height: 85vh}
+  .lightbox-inner img, .lightbox-inner video{max-width: 95vw; max-height: 80vh; border-radius: 10px}
+  .lb-close{width: 38px; height: 38px; font-size: 18px; right: -8px; top: -12px}
+  .lb-nav{width: 44px; height: 44px; font-size: 1.2rem}
+  .lb-prev{left: 8px}
+  .lb-next{right: 8px}
+}
+
+@media (max-width:400px){
+  .mmp-card-body{padding: 12px}
+  .mmp-card-media{padding: 10px}
+  .media-view{height: 160px}
+  .thumb{width: 36px; height: 36px}
+  .mmp-card-body h3{font-size: 0.95rem}
+  .mmp-code{font-size: 0.7rem; padding: 3px 8px}
 }

@@ -18,7 +18,7 @@
 
 .participants-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
   gap: 16px;
 }
 
@@ -57,6 +57,10 @@
 }
 
 @media (max-width: 600px) {
+  .participants-page h2 {
+    font-size: 1.4rem;
+  }
+
   .participants-grid {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
@@ -64,5 +68,23 @@
 
   .participant-card {
     padding: 12px 16px;
+  }
+  
+  .participant-name {
+    font-size: 0.9rem;
+  }
+  
+  .participant-count {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .participants-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .participant-card {
+    padding: 12px 14px;
   }
 }
