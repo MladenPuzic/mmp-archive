@@ -1,0 +1,85 @@
+<section class="hall-page">
+  <h2>🏆 Hall of Fame</h2>
+  <p class="hall-subtitle">Statistics from canonical MMPs. Hosts are also counted as participants where appropriate.</p>
+  
+  <div class="hall-grid">
+    <!-- Left column: Participants (tall) -->
+    <div class="hall-card hall-card-main">
+      <div class="hall-card-header">
+        <span class="hall-icon">👥</span>
+        <h3>Participants</h3>
+      </div>
+      <table class="hall-table">
+        <thead>
+          <tr>
+            <th class="rank-col">#</th>
+            <th>Name</th>
+            <th class="count-col">Appearances</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of participants()" [class.top-three]="p.rank === '1' || p.rank === '2' || p.rank === '3' || p.rank.startsWith('1-') || p.rank.startsWith('2-') || p.rank.startsWith('3-')">
+            <td class="rank-col">
+              <span class="rank" [class.gold]="p.rank === '1' || p.rank.startsWith('1-')" [class.silver]="p.rank === '2' || p.rank.startsWith('2-')" [class.bronze]="p.rank === '3' || p.rank.startsWith('3-')">{{ p.rank }}</span>
+            </td>
+            <td class="name-col"><a [routerLink]="['/participant', p.id]" class="name-link">{{ p.name }}</a></td>
+            <td class="count-col">{{ p.count }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Right column: Hosts + Locations stacked -->
+    <div class="hall-side">
+      <div class="hall-card">
+        <div class="hall-card-header">
+          <span class="hall-icon">🎤</span>
+          <h3>Hosts</h3>
+        </div>
+        <table class="hall-table">
+          <thead>
+            <tr>
+              <th class="rank-col">#</th>
+              <th>Name</th>
+              <th class="count-col">Hosted</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let h of topHosts()" [class.top-three]="h.rank === '1' || h.rank === '2' || h.rank === '3' || h.rank.startsWith('1-') || h.rank.startsWith('2-') || h.rank.startsWith('3-')">
+              <td class="rank-col">
+                <span class="rank" [class.gold]="h.rank === '1' || h.rank.startsWith('1-')" [class.silver]="h.rank === '2' || h.rank.startsWith('2-')" [class.bronze]="h.rank === '3' || h.rank.startsWith('3-')">{{ h.rank }}</span>
+              </td>
+              <td class="name-col"><a [routerLink]="['/participant', h.id]" class="name-link">{{ h.name }}</a></td>
+              <td class="count-col">{{ h.count }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="hall-card">
+        <div class="hall-card-header">
+          <span class="hall-icon">📍</span>
+          <h3>Locations</h3>
+        </div>
+        <table class="hall-table">
+          <thead>
+            <tr>
+              <th class="rank-col">#</th>
+              <th>Location</th>
+              <th class="count-col">Events</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let l of locationsList()" [class.top-three]="l.rank === '1' || l.rank === '2' || l.rank === '3' || l.rank.startsWith('1-') || l.rank.startsWith('2-') || l.rank.startsWith('3-')">
+              <td class="rank-col">
+                <span class="rank" [class.gold]="l.rank === '1' || l.rank.startsWith('1-')" [class.silver]="l.rank === '2' || l.rank.startsWith('2-')" [class.bronze]="l.rank === '3' || l.rank.startsWith('3-')">{{ l.rank }}</span>
+              </td>
+              <td class="name-col">{{ l.name }}</td>
+              <td class="count-col">{{ l.count }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

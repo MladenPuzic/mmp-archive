@@ -1,0 +1,12 @@
+<section class="page-grid">
+  <div>
+    <h2>Murder Mystery Parties</h2>
+    <p class="page-description">Murder Mystery Parties (MMPs) are themed events where guests take on character roles to solve a fictional crime. We've been organizing these gatherings for over 10 years, inviting numerous friends and family to join in the fun. Whether you're nostalgic about a MMP you participated in, or just want to learn about the history - we've created this archive of fond memories for you. </p>
+    <div *ngIf="loading()">Loading…</div>
+    <div class="cards">
+      <ng-container *ngFor="let m of mmps()">
+        <app-mmp-card *ngIf="m.canon" [mmp]="m" [people]="people()" [locations]="locations()"></app-mmp-card>
+      </ng-container>
+    </div>
+  </div>
+</section>

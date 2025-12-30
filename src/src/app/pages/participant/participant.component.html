@@ -1,0 +1,89 @@
+<section class="participant-page" *ngIf="!loading() && !notFound()">
+  <div class="participant-header">
+    <h2>{{ person()?.name }}</h2>
+    <div class="stats-summary">
+      <div class="stat-badge">
+        <span class="stat-number">{{ person()?.totalAppearances }}</span>
+        <span class="stat-label">MMP{{ person()?.totalAppearances === 1 ? '' : 's' }}</span>
+      </div>
+      <div class="stat-badge" *ngIf="person()?.timesHosted">
+        <span class="stat-number">{{ person()?.timesHosted }}</span>
+        <span class="stat-label">Hosted</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-number">{{ person()?.characters?.length }}</span>
+        <span class="stat-label">Character{{ person()?.characters?.length === 1 ? '' : 's' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="participant-grid">
+    <!-- Appearances -->
+    <div class="participant-card">
+      <div class="card-header">
+        <h3>MMP Appearances</h3>
+      </div>
+      <div class="card-body">
+        <table class="appearances-table">
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Title</th>
+              <th>Date</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let app of person()?.appearances" [class.host-row]="app.isHost">
+              <td class="code-col">
+                <span class="mmp-code">{{ app.code }}</span>
+                <span class="host-badge" *ngIf="app.isHost">🎤 Host</span>
+              </td>
+              <td class="title-col">{{ app.title }}</td>
+              <td class="date-col">{{ app.date | date:'MMM d, y' }}</td>
+              <td class="role-col">{{ app.role || '—' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Characters -->
+    <div class="participant-card" *ngIf="person()?.characters?.length">
+      <div class="card-header">
+        <h3>Characters Played</h3>
+      </div>
+      <div class="card-body">
+        <div class="characters-grid">
+          <div class="character-item" *ngFor="let char of person()?.characters">
+            <span class="character-name">{{ char.role }}</span>
+            <span class="character-mmp">{{ char.mmpCode }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All Participants List -->
+  <div class="all-participants">
+    <h3>All Participants</h3>
+    <div class="participants-list">
+      <a *ngFor="let p of allPeople()" 
+         [routerLink]="['/participant', p.id]"
+         [class.active]="p.id === person()?.id"
+         class="participant-link">
+        {{ p.name }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="participant-page" *ngIf="loading()">
+  <p>Loading…</p>
+</section>
+
+<section class="participant-page" *ngIf="!loading() && notFound()">
+  <h2>Participant Not Found</h2>
+  <p>The participant you're looking for doesn't exist.</p>
+  <a routerLink="/hall" class="back-link">← Back to Hall of Fame</a>
+</section>

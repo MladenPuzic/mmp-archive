@@ -1,0 +1,15 @@
+<header class="site-header">
+	<div class="app-container">
+		<div class="brand">Murder Mystery Party Archive</div>
+		<nav class="site-nav">
+			<a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+			<a routerLink="/other" routerLinkActive="active-link">Other MMPs</a>
+			<a routerLink="/participants" routerLinkActive="active-link">Participants</a>
+			<a routerLink="/hall" routerLinkActive="active-link">Hall of Fame</a>
+		</nav>
+	</div>
+</header>
+
+<main class="app-container" role="main">
+	<router-outlet />
+</main>

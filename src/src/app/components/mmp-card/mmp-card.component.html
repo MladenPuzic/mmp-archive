@@ -1,0 +1,85 @@
+<article class="mmp-card">
+  <div class="mmp-card-grid">
+    <div class="mmp-card-media" *ngIf="hasMedia()">
+      <div class="media-view">
+        <ng-container *ngIf="activeMedia() as media">
+          <img *ngIf="media.type === 'image'" [src]="media.url" alt="{{ mmp.title }}" loading="lazy" (click)="openLightbox()" />
+          <video *ngIf="media.type === 'video'" [src]="media.url" controls muted playsinline (click)="openLightbox()"></video>
+        </ng-container>
+      </div>
+      <div class="media-controls" *ngIf="media().length > 1">
+        <button (click)="prev()" aria-label="Previous">◀</button>
+        <div class="thumbs">
+          <button *ngFor="let it of media(); let i = index" class="thumb" (click)="activeIndex.set(i)" [class.active]="i === activeIndex()">
+            <img *ngIf="it.type === 'image'" [src]="it.url" alt="thumb" loading="lazy" />
+            <img *ngIf="it.type === 'video' && it.thumbnail" [src]="it.thumbnail" alt="video thumb" class="video-thumb" />
+            <span *ngIf="it.type === 'video'" class="video-badge-overlay">▶</span>
+          </button>
+        </div>
+        <button (click)="next()" aria-label="Next">▶</button>
+      </div>
+    </div>
+
+    <div class="mmp-card-body">
+      <div class="card-header">
+        <span class="mmp-code">{{ mmp.code }}</span>
+        <h3>
+          <a *ngIf="mmp.link" [href]="mmp.link" target="_blank" rel="noopener" class="title-link">{{ mmp.title }}</a>
+          <span *ngIf="!mmp.link">{{ mmp.title }}</span>
+        </h3>
+      </div>
+
+      <div class="info-pills">
+        <div class="info-pill">
+          <span class="pill-icon">📅</span>
+          <span class="pill-label">Date</span>
+          <span class="pill-value">{{ mmp.date }}</span>
+        </div>
+        <div class="info-pill">
+          <span class="pill-icon">🎤</span>
+          <span class="pill-label">Host</span>
+          <a class="pill-value pill-link" [routerLink]="['/participant', mmp.hostId]">{{ getHostName() }}</a>
+        </div>
+        <div class="info-pill">
+          <span class="pill-icon">📍</span>
+          <span class="pill-label">Location</span>
+          <span class="pill-value">{{ getLocationName() }}</span>
+        </div>
+      </div>
+
+      <div class="cast-section" *ngIf="mmp.cast?.length">
+        <h4>
+          <span class="section-icon">👥</span>
+          Cast ({{ mmp.cast.length }})
+        </h4>
+        <div class="cast-grid">
+          <div class="cast-member" *ngFor="let c of mmp.cast">
+            <a class="cast-name cast-link" [routerLink]="['/participant', c.userId]">{{ getPersonName(c.userId) }}</a>
+            <span class="cast-role" *ngIf="c.role">{{ c.role }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="notes-section" *ngIf="mmp.notes">
+        <h4>
+          <span class="section-icon">📝</span>
+          Notes
+        </h4>
+        <p>{{ mmp.notes }}</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<div class="lightbox" *ngIf="lightboxOpen()">
+  <div class="lightbox-backdrop" (click)="closeLightbox()"></div>
+  <button class="lb-nav lb-prev" (click)="prev()" *ngIf="media().length > 1" aria-label="Previous">◀</button>
+  <div class="lightbox-inner">
+    <button class="lb-close" (click)="closeLightbox()">✕</button>
+    <ng-container *ngIf="activeMedia() as media">
+      <img *ngIf="media.type === 'image'" [src]="media.url" alt="{{ mmp.title }}" />
+      <video *ngIf="media.type === 'video'" [src]="media.url" controls></video>
+    </ng-container>
+  </div>
+  <button class="lb-nav lb-next" (click)="next()" *ngIf="media().length > 1" aria-label="Next">▶</button>
+</div>

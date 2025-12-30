@@ -1,0 +1,15 @@
+<section class="participants-page">
+  <h2>Participants</h2>
+  <p class="page-description">Everyone who has participated in a Murder Mystery Party.</p>
+
+  <div *ngIf="loading()">Loading…</div>
+
+  <div class="participants-grid" *ngIf="!loading()">
+    <a *ngFor="let p of people()" 
+       [routerLink]="['/participant', p.id]"
+       class="participant-card">
+      <span class="participant-name">{{ p.name }}</span>
+      <span class="participant-count">{{ p.appearances }} MMP{{ p.appearances === 1 ? '' : 's' }}</span>
+    </a>
+  </div>
+</section>

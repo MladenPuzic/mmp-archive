@@ -1,0 +1,123 @@
+nav a.active-link {
+	font-weight: 600;
+}
+
+nav a:focus {
+	outline: 3px solid rgba(99,102,241,0.3);
+	border-radius: 3px;
+}
+
+:root{
+	--bg:#f6f8fa;
+	--card-bg: #fff;
+	--muted:#6b6f76;
+	--accent:#6366f1;
+	--accent-dark:#4f46e5;
+}
+
+body{
+	font-family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	background: var(--bg);
+	color: #111;
+	margin: 0;
+	-webkit-font-smoothing:antialiased;
+}
+
+.app-container{ 
+  width: 100%;
+  max-width: 1140px; 
+  margin: 28px auto; 
+  padding: 0 15px;
+}
+
+.page-grid{ display:block }
+
+.cards { display:flex; flex-direction: column; gap:24px }
+
+/* Enhanced Navbar */
+header.site-header {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 4px 20px rgba(30, 27, 75, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header.site-header .app-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 auto;
+  padding: 12px 15px;
+}
+
+header .brand {
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: #fff;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.site-nav {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.site-nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.site-nav a.active-link {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.leaders { display:flex; gap:18px; margin-top:10px }
+.leader-block { background:var(--card-bg); padding:12px; border-radius:8px; box-shadow: 0 6px 16px rgba(12,14,20,0.04); flex:1 }
+.leader-block h3{ margin-top:0 }
+
+@media (max-width: 880px) {
+	.page-grid { grid-template-columns: 1fr }
+	.leaders { flex-direction: column }
+	.mmp-card-grid { grid-template-columns: 1fr }
+}
+
+@media (max-width: 600px) {
+  header.site-header .app-container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 15px;
+  }
+  
+  .site-nav {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .site-nav a {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+footer{ margin-top:30px; color:var(--muted); font-size:0.9rem; text-align:center }

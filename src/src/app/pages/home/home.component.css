@@ -1,0 +1,25 @@
+/* Home page styles */
+.page-grid {
+  display: block;
+  max-width: 100%;
+}
+
+.page-description {
+  color: var(--text-muted, #64748b);
+  font-size: 1rem;
+  margin: -8px 0 24px 0;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+aside {
+  margin-top: 40px;
+  padding: 24px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}

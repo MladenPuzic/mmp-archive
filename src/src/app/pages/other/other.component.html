@@ -1,0 +1,11 @@
+<section class="page-grid">
+  <div>
+    <h2>Other (non-canon) Murder Mystery Parties</h2>
+    <p class="page-description">Murder Mystery Parties organized outside the regular cycle. Not counted towards Hall of Fame. </p>
+    <div class="cards">
+      <ng-container *ngFor="let m of mmps()">
+        <app-mmp-card *ngIf="!m.canon" [mmp]="m" [people]="people()" [locations]="locations()"></app-mmp-card>
+      </ng-container>
+    </div>
+  </div>
+</section>
