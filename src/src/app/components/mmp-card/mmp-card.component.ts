@@ -43,10 +43,10 @@ export class MmpCardComponent implements OnChanges {
       const urls = this.mmp.media.map((fname: string) => {
         const lower = String(fname).toLowerCase();
         const isVideo = lower.endsWith('.mp4') || lower.endsWith('.webm');
-        // Serve from the built `public` folder at /img/{id}/{file};
-        // fall back to /assets/img for environments that expose assets there.
-        const url = `/img/${this.mmp.id}/${fname}`;
-        const fallback = `/assets/img/${this.mmp.id}/${fname}`;
+        // Serve from the built `public` folder at img/{id}/{file};
+        // fall back to assets/img for environments that expose assets there.
+        const url = `img/${this.mmp.id}/${fname}`;
+        const fallback = `assets/img/${this.mmp.id}/${fname}`;
         return { url, fallback, type: isVideo ? 'video' : 'image' } as any;
       });
       // normalize to {url,type} but keep fallback in case element fails to load
@@ -63,7 +63,7 @@ export class MmpCardComponent implements OnChanges {
     const maxFiles = 12;
     const maxFound = 8;
   // fallback bases to try when index is not present
-  const bases = [`/img/${this.mmp.id}`, `/assets/img/${this.mmp.id}`];
+  const bases = [`img/${this.mmp.id}`, `assets/img/${this.mmp.id}`];
   for (let i = 1; i <= maxFiles; i++) {
       let foundThisIndex = false;
       for (const ext of exts) {
