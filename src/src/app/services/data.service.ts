@@ -7,14 +7,14 @@ export class DataService {
   private http = inject(HttpClient);
 
   async getMmps() {
-    return firstValueFrom(this.http.get('data/mmp.json')) as Promise<any[]>;
+    return firstValueFrom(this.http.get('/data/mmp.json')) as Promise<any[]>;
   }
 
   async getPeople() {
-    return firstValueFrom(this.http.get('data/people.json')) as Promise<any[]>;
+    return firstValueFrom(this.http.get('/data/people.json')) as Promise<any[]>;
   }
 
   async getLocations() {
-    return firstValueFrom(this.http.get('data/locations.json')) as Promise<any[]>;
+    return firstValueFrom(this.http.get('/data/locations.json')) as Promise<any[]>;
   }
 }
