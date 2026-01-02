@@ -26,7 +26,9 @@ export class ParticipantsPageComponent implements OnInit {
     const appearanceCounts: Record<number, number> = {};
     for (const mmp of mmps) {
       const seen = new Set<number>();
-      if (mmp.hostId != null) seen.add(mmp.hostId);
+      for (const hostId of (mmp.hostIds || [])) {
+        seen.add(hostId);
+      }
       for (const c of mmp.cast || []) {
         if (c && c.userId != null) seen.add(c.userId);
       }

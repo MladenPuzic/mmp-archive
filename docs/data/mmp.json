@@ -7,7 +7,7 @@
     "date": "2015-11-22",
     "locationId": 1,
     "link": "https://www.whodunitmysteries.com/sour.html",
-    "hostId": 1,
+    "hostIds": [1],
     "cast": [
       { "userId": 1, "role": "Michael Nightshade" },
       { "userId": 2, "role": "Enrique Graves" },
@@ -26,7 +26,7 @@
     "date": "2018-01-06",
     "locationId": 2,
     "link": "https://www.darkshire.net/jhkim/rpg/murder/business.html",
-    "hostId": 1,
+    "hostIds": [1],
     "cast": [
       { "userId": 1, "role": "Ronnie Snapper" },
       { "userId": 4, "role": "Tim Bradlow" },
@@ -46,7 +46,7 @@
     "date": "2019-01-05",
     "locationId": 2,
     "link": "https://www.freeformgames.com/product/way-out-west-free/",
-    "hostId": 1,
+    "hostIds": [1],
     "cast": [
       { "userId": 10, "role": null },
       { "userId": 2, "role": "Dan Fairweather" },
@@ -69,7 +69,7 @@
     "date": "2020-01-05",
     "locationId": 2,
     "link": "https://www.freeformgames.com/product/the-night-before-christmas/",
-    "hostId": 1,
+    "hostIds": [1],
     "cast": [
       { "userId": 14, "role": "Rose Evington-Browne" },
       { "userId": 15, "role": "Dinah Peters" },
@@ -94,7 +94,7 @@
     "date": "2022-12-17",
     "locationId": 2,
     "link": "https://www.freeformgames.com/product/the-food-is-to-die-for/",
-    "hostId": 2,
+    "hostIds": [2],
     "cast": [
       { "userId": 1, "role": "Adrian Charles" },
       { "userId": 4, "role": "Alex Norman" },
@@ -120,7 +120,7 @@
     "date": "2024-01-03",
     "locationId": 2,
     "link": "https://www.freeformgames.com/product/the-roswell-incident/",
-    "hostId": 11,
+    "hostIds": [11],
     "cast": [
       { "userId": 24, "role": "Prof. Kraushaar" },
       { "userId": 10, "role": "Dr. Blake" },
@@ -145,7 +145,7 @@
     "date": "2025-01-02",
     "locationId": 3,
     "link": "https://www.freeformgames.com/product/the-spy-who-killed-me/",
-    "hostId": 11,
+    "hostIds": [11],
     "cast": [
       { "userId": 27, "role": "Alicia Schleitwiler" },
       { "userId": 4, "role": "Chris Morrison" },
@@ -175,7 +175,7 @@
     "date": "2024-05-12",
     "locationId": 4,
     "link": "https://www.freeformgames.com/product/lord-and-lady-westings-will/",
-    "hostId": 1,
+    "hostIds": [1],
     "cast": [
       { "userId": 30, "role": "Max Kuchler" },
       { "userId": 32, "role": "Natalya Sudakova" },
@@ -190,5 +190,30 @@
       { "userId": 37, "role": "Superintendent Charles Stone" }
     ],
     "media": [ "1.jpg", "2.mp4" ]
+  },
+  {
+    "id": 9,
+    "code": "MMP VIII",
+    "title": "Začarani Krug",
+    "canon": true,
+    "date": "2026-01-02",
+    "locationId": 3,
+    "link": "",
+    "hostIds": [4, 11],
+    "cast": [
+      { "userId": 10, "role": "Ana Radović" },
+      { "userId": 1, "role": "Aranđel Topuzić" }, 
+      { "userId": 2, "role": "Bane Dimitrijević" }, 
+      { "userId": 15, "role": "Ema Lazić" }, 
+      { "userId": 31, "role": "Ilija Petrović" },
+      { "userId": 29, "role": "Kosta Bojanić" }, 
+      { "userId": 25, "role": "Luka Bojanić" }, 
+      { "userId": 3, "role": "Mila Stanković" }, 
+      { "userId": 7, "role": "Raša Stanković" },
+      { "userId": 24, "role": "Vlada Radović" },
+      { "userId": 26, "role": "Sale Radović" },
+      { "userId": 19, "role": "Una Jovanović" }
+    ],
+    "media": [ "1.mp4" ]
   }
 ]

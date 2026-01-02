@@ -68,7 +68,7 @@ export class ParticipantPageComponent implements OnInit {
       let timesHosted = 0;
 
       for (const mmp of mmps) {
-        const isHost = mmp.hostId === personId;
+        const isHost = (mmp.hostIds || []).includes(personId);
         const castEntry = (mmp.cast || []).find((c: any) => c.userId === personId);
 
         if (isHost || castEntry) {

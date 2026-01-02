@@ -37,8 +37,12 @@
         </div>
         <div class="info-pill">
           <span class="pill-icon">🎤</span>
-          <span class="pill-label">Host</span>
-          <a class="pill-value pill-link" [routerLink]="['/participant', mmp.hostId]">{{ getHostName() }}</a>
+          <span class="pill-label">{{ getHostNames().length > 1 ? 'Hosts' : 'Host' }}</span>
+          <span class="pill-value">
+            <ng-container *ngFor="let host of getHostNames(); let last = last">
+              <a class="pill-link" [routerLink]="['/participant', host.id]">{{ host.name }}</a><span *ngIf="!last">, </span>
+            </ng-container>
+          </span>
         </div>
         <div class="info-pill">
           <span class="pill-icon">📍</span>

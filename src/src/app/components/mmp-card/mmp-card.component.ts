@@ -206,9 +206,12 @@ export class MmpCardComponent implements OnChanges {
     this.activeIndex.set((this.activeIndex() - 1 + this.media().length) % this.media().length);
   }
 
-  getHostName() {
-    const host = this.people.find((p: any) => p.id === this.mmp.hostId);
-    return host ? host.name : 'Unknown';
+  getHostNames(): Array<{id: number, name: string}> {
+    const hostIds = this.mmp.hostIds || [];
+    return hostIds.map((id: number) => {
+      const host = this.people.find((p: any) => p.id === id);
+      return { id, name: host ? host.name : 'Unknown' };
+    });
   }
 
   getLocationName() {

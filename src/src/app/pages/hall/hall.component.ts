@@ -46,7 +46,11 @@ export class HallPageComponent implements OnInit {
 
     // hosts
     const hostCounts: Record<number, number> = {};
-    for (const m of mmps) hostCounts[m.hostId] = (hostCounts[m.hostId] || 0) + 1;
+    for (const m of mmps) {
+      for (const hostId of (m.hostIds || [])) {
+        hostCounts[hostId] = (hostCounts[hostId] || 0) + 1;
+      }
+    }
     const hostArr = Object.entries(hostCounts).map(([id, count]) => ({ id: Number(id), count }));
     hostArr.sort((a, b) => b.count - a.count);
     const hostData = hostArr.map(x => ({ id: x.id, name: people.find(p => p.id === x.id)?.name ?? '—', count: x.count }));
@@ -57,7 +61,9 @@ export class HallPageComponent implements OnInit {
     for (const m of mmps) {
       if (!m.canon) continue; // only count canonical MMPs
       const seen = new Set<number>();
-      if (m.hostId != null) seen.add(m.hostId);
+      for (const hostId of (m.hostIds || [])) {
+        seen.add(hostId);
+      }
       for (const c of m.cast || []) {
         if (c && c.userId != null) seen.add(c.userId);
       }
