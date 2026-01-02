@@ -48,7 +48,7 @@
     "link": "https://www.freeformgames.com/product/way-out-west-free/",
     "hostIds": [1],
     "cast": [
-      { "userId": 10, "role": null },
+      { "userId": 10, "role": "Blaise Sadler" },
       { "userId": 2, "role": "Dan Fairweather" },
       { "userId": 11, "role": "John Paulson" },
       { "userId": 4, "role": "Doc Faraday" },
@@ -56,7 +56,7 @@
       { "userId": 3, "role": "Lucy Calhoun" },
       { "userId": 7, "role": "Elijah Entwhistle" },
       { "userId": 8, "role": "Runs Like a Deer" },
-      { "userId": 9, "role": null },
+      { "userId": 9, "role": "Mel Easton" },
       { "userId": 13, "role": "Clem Parham" }
     ],
     "media": [ "1.png" ]
