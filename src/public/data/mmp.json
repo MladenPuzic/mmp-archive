@@ -215,5 +215,31 @@
       { "userId": 19, "role": "Una Jovanović" }
     ],
     "media": [ "1.jpg", "2.mp4" ]
+  },
+  {
+    "id": 10,
+    "code": "MMP NC II",
+    "title": "The Roswell Incident",
+    "canon": false,
+    "date": "2026-08-29",
+    "locationId": 5,
+    "link": "https://www.freeformgames.com/product/the-roswell-incident/",
+    "hostIds": [11],
+    "cast": [
+      { "userId": 49, "role": "Prof. Kraushaar" },
+      { "userId": 43, "role": "Dr. Blake" },
+      { "userId": 41, "role": "Sheriff Jackson" },
+      { "userId": 37, "role": "Sgt. Baker" },
+      { "userId": 42, "role": "Agent Deacon" },
+      { "userId": 38, "role": "Major Collins" },
+      { "userId": 48, "role": "Finley" },
+      { "userId": 40, "role": "Dr. Fowler" },
+      { "userId": 47, "role": "Mayor Weinrib" },
+      { "userId": 44, "role": "Agent Franz" },
+      { "userId": 46, "role": "Turner" },
+      { "userId": 45, "role": "Karns" },
+      { "userId": 39, "role": "Živojinović" }
+    ],
+    "media": [ "1.jpg" ]
   }
 ]
