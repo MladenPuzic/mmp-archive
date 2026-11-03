@@ -47,6 +47,7 @@ export class HallPageComponent implements OnInit {
     // hosts
     const hostCounts: Record<number, number> = {};
     for (const m of mmps) {
+      if (!m.canon) continue; // only count canonical MMPs
       for (const hostId of (m.hostIds || [])) {
         hostCounts[hostId] = (hostCounts[hostId] || 0) + 1;
       }
